@@ -9,16 +9,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // be split into multiple files.
 
 module.exports = {
-entry: {
-  index: './src/index.js',
-  print: './src/print.js',
-},
+  mode: 'development',
+  entry: {
+    index: './src/index.js',
+    print: './src/print.js',
+  },
+  // it's noted the it's good for development but not for production 
+  devtool: 'inline-source-map',
 // this plugin will generate it's own index.html and replace ours after "npm run build" command
-plugins: [
-  new HtmlWebpackPlugin({
-    title: 'Output Management',
-  }),
-],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Development',
+    }),
+  ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
