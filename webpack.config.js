@@ -6,6 +6,9 @@ const path = require('path');
 // of any name. This will be useful for more complex configurations that need to 
 // be split into multiple files.
 module.exports = {
+    //   entry: './src',
+// it worked but not sure yet if I can just use a dir name instead of a file 
+// to bundle all the files inside a directory into a file like "main.js" in this case
   entry: './src/index.js',
   output: {
     filename: 'main.js',
