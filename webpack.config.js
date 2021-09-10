@@ -1,5 +1,5 @@
 const path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // basically telling it where to look at
 // If a webpack.config.js is present, the webpack command picks it up by default. 
@@ -7,16 +7,21 @@ const path = require('path');
 // creating the config file, only to show that you can pass a configuration 
 // of any name. This will be useful for more complex configurations that need to 
 // be split into multiple files.
+
 module.exports = {
-// used "entry: './src'" instead of "entry: './src/index.js"
-// it worked but not sure yet if I can just use a dir name instead of a file 
-// to bundle all the files inside a directory into a file like "main.js" in this case
 entry: {
   index: './src/index.js',
   print: './src/print.js',
 },
+// this plugin will generate it's own index.html and replace ours after "npm run build" command
+plugins: [
+  new HtmlWebpackPlugin({
+    title: 'Output Management',
+  }),
+],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
 };
