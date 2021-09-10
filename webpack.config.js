@@ -16,7 +16,11 @@ module.exports = {
   },
   // it's noted the it's good for development but not for production 
   devtool: 'inline-source-map',
-// this plugin will generate it's own index.html and replace ours after "npm run build" command
+  devServer: {
+    // this eliminates the necessaty to refresh the page on the broswer to see the changes
+    static: './dist'
+  },
+  // this plugin will generate it's own index.html and replace ours after "npm run build" command
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Development',
