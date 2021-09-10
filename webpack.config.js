@@ -1,4 +1,9 @@
 const path = require('path');
+const toml = require('toml');
+const yaml = require('yamljs');
+const json5 = require('json5');
+
+
 // basically telling it where to look at
 // If a webpack.config.js is present, the webpack command picks it up by default. 
 // We use the --config option in the "npx webpack --config webpack.config.js" after 
@@ -42,9 +47,30 @@ module.exports = {
         use: ['csv-loader'],
       },
       {
-        // and this one is for xml
+        // and this one is for xml and so on
         test: /\.xml$/i,
         use: ['xml-loader'],
+      },
+      {
+        test: /\.toml$/i,
+        type: 'json',
+        parser: {
+          parse: toml.parse,
+        },
+      },
+      {
+        test: /\.yaml$/i,
+        type: 'json',
+        parser: {
+          parse: yaml.parse,
+        },
+      },
+      {
+        test: /\.json5$/i,
+        type: 'json',
+        parser: {
+          parse: json5.parse,
+        },
       },
     ],
   },
