@@ -31,6 +31,21 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
+      {
+        // adding this allowed me to use fonts 
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+      {
+        // well names are pretty self explanatory but yeah this one lets me work with csv files
+        test: /\.(csv|tsv)$/i,
+        use: ['csv-loader'],
+      },
+      {
+        // and this one is for xml
+        test: /\.xml$/i,
+        use: ['xml-loader'],
+      },
     ],
   },
 };
