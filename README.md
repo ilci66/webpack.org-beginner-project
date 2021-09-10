@@ -1,1 +1,2 @@
 * Following the tutorial on https://webpack.js.org/guides/getting-started/#basic-setup
+* I can't actually view the fonts I used in this project because of a memory error (atleast on mozilla firefox), caused by the png I chose to use , but the way I added and used it in the project is the right way, so moving on
