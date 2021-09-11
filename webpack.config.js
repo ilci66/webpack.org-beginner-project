@@ -17,7 +17,7 @@ module.exports = {
   // it's noted the it's good for development but not for production 
   devtool: 'inline-source-map',
   devServer: {
-    // this eliminates the necessaty to refresh the page on the broswer to see the changes
+    // this eliminates the necessity to refresh the page on the broswer to see the changes
     static: './dist'
   },
   // this plugin will generate it's own index.html and replace ours after "npm run build" command
@@ -30,5 +30,6 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/',
   },
 };
