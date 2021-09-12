@@ -12,7 +12,7 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    print: './src/print.js',
+    another: './src/another-module.js',
   },
   // it's noted the it's good for development but not for production 
   devtool: 'inline-source-map',
