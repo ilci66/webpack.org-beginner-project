@@ -11,37 +11,31 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    // no need to import lodash multiple times this way
-    index: {
-      import: './src/index.js',
-      dependOn: 'shared',
-    },
-    another: {
-      import: './src/another-module.js',
-      dependOn: 'shared',
-    },
-    shared: 'lodash',
-   },
-  // it's noted the it's good for development but not for production 
-  devtool: 'inline-source-map',
-  devServer: {
-    // this eliminates the necessity to refresh the page on the broswer to see the changes
-    static: './dist'
+    index: './src/index.js',
+    another: './src/another-module.js',
   },
+  // it's noted the it's good for development but not for production 
+  // devtool: 'inline-source-map',
+  // devServer: {
+    // this eliminates the necessity to refresh the page on the broswer to see the changes
+    // static: './dist'
+  // },
   // this plugin will generate it's own index.html and replace ours after "npm run build" command
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Development',
-    }),
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     title: 'Development',
+  //   }),
+  // ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     publicPath: '/',
   }, 
-  // important to add this, when there are multiple entry points
+  
   optimization: {
-    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 };
