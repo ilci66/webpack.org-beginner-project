@@ -27,15 +27,30 @@ module.exports = {
   //   }),
   // ],
   output: {
-    filename: '[name].bundle.js',
+    // commented for loader example
+    // filename: '[name].bundle.js',
+    filename: 'my-first-webpack.bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     publicPath: '/',
   }, 
-  
+  module: {
+    rules: [{ test: /\.txt$/, use: 'raw-loader' }],
+  },
   optimization: {
     splitChunks: {
       chunks: 'all',
     },
   },
 };
+
+// // LOADER example
+// const path = require('path');
+
+// module.exports = {
+//   entry: './path/to/my/entry/file.js',
+//   output: {
+//     path: path.resolve(__dirname, 'dist'),
+//     filename: 'my-first-webpack.bundle.js',
+//   },
+// };
